@@ -1,0 +1,133 @@
+
+
+
+OnGhostLoad {
+    //ssp/ghost/ghost_name/ghost/master
+    GHOSTPATH = REPLACE( SHIORI3FW.Path , '\' , '/' )
+
+    //proxy_ex.dll初期化
+    FUNCTIONEX("./dll/proxy_ex.dll" ,  "/charset" , "UTF-8"  )
+
+    // dic_GhostStatus.uka
+    OnLoadFaceControl
+
+    // dic_ReadBooks.uka
+    ReadBooks_Boot
+
+    // dic_Weather.uka
+    LoadWeather
+
+    // dic_WatchOverYou.uka
+    LoadWatchOver
+
+    // dic_KeyPress.uka
+    UnloadKeyPress 
+
+    // dic_MouseStroke
+    LoadMouseStroke
+
+    // dic_Hello.uka
+    LoadHello
+}
+
+OnGhostUnload {
+    ERASEVAR( 'GHOSTPATH' )
+    ERASEVAR( 'Global_count' )
+    ERASEVAR( 'Global_arg1' ) 
+    ERASEVAR( 'Global_arg2' ) 
+    ERASEVAR( 'Global_arg3' ) 
+    ERASEVAR( 'Global_arg4' ) 
+    ERASEVAR( 'Global_arg5' ) 
+	LastCloseTime	= GETTIME
+
+    // dic_GhostStatus.uka
+    UnLoadFaceControl
+
+    // dic_ReadBooks.uka
+    ReadBooks_unBoot
+
+    // dic_WatchOverYou.uka
+    UnloadWatchOver
+
+    // dic_MouseStroke
+    UnloadMouseStroke
+
+    // dic_Hello.uka
+    UnloadHello
+}
+
+
+
+OnFirstBoot {
+	FirstBootTime	= GETTIME
+}
+
+FirstContact {
+    
+}
+
+
+
+
+//新規起動
+OnBoot {
+
+    HelloWorld
+}
+
+
+//呼ばれた
+OnGhostCalled {
+
+    HelloWorld
+}
+
+
+//切り替え・再起動
+OnGhostChanged {
+
+    HelloWorld
+}
+
+
+OnClose {
+
+	_endText = "さようなら。\w9\w9\w9\-\e"
+    _mainText = "\0\s[%(FaceControl)]"
+    _subText  = ""
+    if ( WeatherFlag == 2 ) || ( WeatherFlag == 3 ) {
+        _subText = _subText + "\n今日の天気はね～ .... \n\n" + getWeather + "\n" + "だってさ。\n"
+    }
+
+    //_h = TOINT( "%(hour)" )
+    //if ( 6 >= _h && _h >= 2 ){
+    //別に寝ててもいいよね
+    //}elseif ( 11 >= _h && _h > 6 ){
+    //}elseif ( 13 >= _h && _h > 11 ){
+    //}elseif ( 14 >= _h && _h > 13 ){
+    //}elseif ( 16 >= _h && _h > 14 ){
+    //}elseif ( 18 >= _h && _h > 16 ){
+    //}elseif ( 19 >= _h && _h > 18 ){
+    //}elseif ( 21 >= _h && _h > 19 ){
+    //}elseif ( 22 >= _h && _h > 19 ){
+    //}elseif ( 24 >= _h && _h > 22 ){
+    //}elseif ( 1 >= _h && _h >= 0 ){
+    //}else{
+    //}
+
+    _text = _mainText + _subText + _endText
+    "%(_text)"
+}
+
+
+
+////切り替わる前に呼ばれる
+//OnGhostChanging {
+//}
+
+
+
+
+
+
+

@@ -1,0 +1,29 @@
+
+
+
+
+
+OnBoot {
+	'\0\s[0]\1\s[-1]\0エラー\e'
+}
+
+
+OnMouseDoubleClick {
+	OnBoot()
+}
+
+
+OnKeyPress {
+	if ISFUNC('key.' + reference[0]) {
+		EVAL('key.' + reference[0])
+	}
+}
+
+
+key.r {
+	'\![reload,shiori]\0\s[0]\_qReloaded.\_q\e'
+}
+
+
+
+
