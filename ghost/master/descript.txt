@@ -1,18 +1,17 @@
 type,ghost
 shiori,yaya.dll
-title,KOHAKU
+title,WindowTitleName
 
 
-craftman,ambergon
-craftmanw,ambergon
-craftmanurl,https://ambergonslibrary.com/ukagaka/
-homeurl,https://raw.githubusercontent.com/ambergon/ukagakaGhost_Kohaku/release/
+craftman,yourName
+craftmanurl,yourHomePageUrl
+homeurl,NetWorkUpdateHomePageUrl
 
 
 //menu_name
 name,add_menu_name
-sakura.name,琥珀
-kero.name,Book
+sakura.name,CharacterA
+kero.name,CharacterB
 
 sakura.seriko.alignmenttodesktop,bottom
 
@@ -20,11 +19,6 @@ sakura.seriko.alignmenttodesktop,bottom
 readme,ReadMe.txt
 readme.charset,UTF-8
 
-
-balloon,kohakuTarminal
-default.balloon.path,ukagakaBalloon_kohakuTarminal
-recommended.balloon,kohakuTarminal
-recommended.balloon.path,ukagakaBalloon_kohakuTarminal
 //icon,path.ico
 //icon.minimize,path.ico
 
