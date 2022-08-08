@@ -1,6 +1,5 @@
 type,ghost
 shiori,yaya.dll
-title,WindowTitleName
 
 
 craftman,yourName
