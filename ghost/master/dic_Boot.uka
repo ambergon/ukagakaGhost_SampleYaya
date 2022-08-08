@@ -14,6 +14,7 @@ OnGhostUnload {
 
 
 OnFirstBoot {
+    "初めまして。"
 }
 
 
